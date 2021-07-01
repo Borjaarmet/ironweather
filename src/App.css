@@ -4,8 +4,9 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+
 h4 {
-  font-size: 25px;
+  font-size: 20px;
 }
 h5 {
   color: gray;
@@ -30,8 +31,14 @@ h5 {
   box-shadow: 12px 12px 24px 0 rgba(0, 0, 0, 0.2),
     -12px -12px 24px 0 rgba(255, 255, 255, 1);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+.dateNow {
+  color: #999;
+  font-size: 20px;
+  margin-bottom: 20px;
 }
 .img {
   width: 120px;
@@ -126,7 +133,7 @@ nav i {
 .card {
   position: relative;
   width: 330px;
-  height: 550px;
+  height: 600px;
   background: #e0e0e0;
   border-radius: 40px;
   box-shadow: 12px 12px 24px 0 rgba(0, 0, 0, 0.2),
@@ -149,7 +156,7 @@ nav i {
 }
 
 .icon {
-  width: 160px;
+  width: 200px;
   height: 130px;
   margin-bottom: 10px;
   background: #e0e0e0;
@@ -195,7 +202,11 @@ nav i {
 
 .card2 {
   width: 250px;
-  height: 100px;
+  height: 170px;
+  display: flex;
+  border: 1px solid gray;
+  border-radius: 40px;
+  text-align: center;
   white-space: nowrap;
   position: relative;
   overflow-x: scroll;
@@ -205,15 +216,37 @@ nav i {
 
 .card2 div {
   width: 100%;
-  background-color: #5ab9ea;
-  color: white;
+  display: flex;
+  flex-direction: colum;
+  justify-content: center;
+  align-items: center;
   border-radius: 40px;
   float: none;
   height: 100%;
-  margin: 0 0.25%;
+  margin: 0 0.5%;
   display: inline-block;
-  zoom: 1;
   text-align: center;
   padding: 10px;
   margin-right: 10px;
+}
+.card2 div div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+.card2 h3 {
+  margin-top: 10px;
+}
+.card2 h4 {
+  color: gray;
+  margin-bottom: 5px;
+}
+
+.iconForecast {
+  width: 120px;
+  height: 100px;
+  margin: 0;
+}
+hr {
+  width: 10px;
 }

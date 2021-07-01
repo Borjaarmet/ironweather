@@ -1,65 +1,108 @@
 import React, { Component } from "react";
 
-import iconCloudy from "../assets/images/noun_cloudy_854513 (1).png";
-import iconSun from "../assets/images/noun_sun_854469 (1).png";
-import iconCloudy2 from "../assets/images/noun_cloudy_854511 (1).png";
-import iconRainy from "../assets/images/noun_rainy_854528 (1).png";
+export class CityCard extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      date: new Date(),
+    };
+  }
 
-const options = {
-  weekday: "long",
-  year: "numeric",
-  month: "long",
-  day: "numeric",
-};
-
-class CityCard extends Component {
-  state = { date: new Date() };
   render() {
-    console.log("props: ", this.props);
+    const options = {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    };
+    console.log("props", this.props);
+    const { cityWeather } = this.props;
+    const { date } = this.state;
+
     return (
-      <div id="cityCard" className="hidden">
+      <div id="cityCard" className="container">
         <div className="card ">
-          <h1 className="city">
-            {this.props.city},{this.props.country}
-          </h1>
-          <div className="date">
-            <p> {this.state.date.toLocaleDateString(undefined, options)}</p>
+          <h1 className="city">{cityWeather.city.name}</h1>
+
+          <p className="dateNow">{date.toLocaleString(undefined, options)}</p>
+          <div className="icon">
+            <img
+              src={`http://openweathermap.org/img/wn/${cityWeather.list[0].weather[0].icon}@4x.png`}
+              alt="icon"
+            ></img>
           </div>
-          <h3 className="description">
-            <i>"{this.props.description}"</i>
-          </h3>
-          <hr />
-          {this.props.description === "few clouds" && (
-            <img className="icon " src={iconCloudy} alt="" />
-          )}
-          {this.props.description === "broken clouds" && (
-            <img className="icon " src={iconCloudy} alt="" />
-          )}
-          {this.props.description === "clear sky" && (
-            <img className="icon " src={iconSun} alt="" />
-          )}
-          {this.props.description === "overcast clouds" && (
-            <img className="icon " src={iconCloudy2} alt="" />
-          )}
-          {this.props.description === "scattered clouds" && (
-            <img className="icon" src={iconCloudy} alt="" />
-          )}
-          {this.props.description === "light rain" && (
-            <img className="icon" src={iconRainy} alt="" />
-          )}
-          {this.props.description === "light moderate rain" && (
-            <img className="icon" src={iconRainy} alt="" />
-          )}
-          <h3 className="temp"> {this.props.temperature.toFixed()} ºC</h3>
+          <h3 className="temp">{cityWeather.list[0].main.temp.toFixed()}ºC</h3>
           <h3 className="forecast">Forecast</h3>
-          <div className="card2 ">
-            <div>
-              <h4>{this.props.day1}</h4>
-              <h4>{this.props.day1Temp.toFixed()} ºC</h4>
-              <h5> "{this.props.day1Desc}"</h5>
+          <div className=" ">
+            <div className="card2">
+              <div>
+                <div>
+                  <h3>{cityWeather.list[8].dt_txt.slice(0, 10)}</h3>
+                  <img
+                    className="iconForecast"
+                    src={`http://openweathermap.org/img/wn/${cityWeather.list[7].weather[0].icon}@4x.png`}
+                    alt="icon"
+                  ></img>
+
+                  <h4>Min {cityWeather.list[3].main.temp_min.toFixed()} ºC</h4>
+                  <h4>Max {cityWeather.list[7].main.temp_max.toFixed()} ºC</h4>
+                </div>
+              </div>
+              <hr />
+              <div>
+                <div>
+                  <h3>{cityWeather.list[16].dt_txt.slice(0, 10)}</h3>
+                  <img
+                    className="iconForecast"
+                    src={`http://openweathermap.org/img/wn/${cityWeather.list[15].weather[0].icon}@4x.png`}
+                    alt="icon"
+                  ></img>
+                  <h4>Min {cityWeather.list[11].main.temp_min.toFixed()} ºC</h4>
+                  <h4>Max {cityWeather.list[15].main.temp.toFixed()} ºC</h4>
+                </div>
+              </div>
+              <hr />
+              <div>
+                <div>
+                  <h3>{cityWeather.list[24].dt_txt.slice(0, 10)}</h3>
+                  <img
+                    className="iconForecast"
+                    src={`http://openweathermap.org/img/wn/${cityWeather.list[23].weather[0].icon}@4x.png`}
+                    alt="icon"
+                  ></img>
+                  <h4>Min {cityWeather.list[19].main.temp_min.toFixed()} ºC</h4>
+                  <h4>Max {cityWeather.list[23].main.temp.toFixed()} ºC</h4>
+                </div>
+              </div>
+              <hr />
+              <div>
+                <div>
+                  <h3>{cityWeather.list[32].dt_txt.slice(0, 10)}</h3>
+                  <img
+                    className="iconForecast"
+                    src={`http://openweathermap.org/img/wn/${cityWeather.list[31].weather[0].icon}@4x.png`}
+                    alt="icon"
+                  ></img>
+                  <h4>Min {cityWeather.list[27].main.temp_min.toFixed()} ºC</h4>
+                  <h4>Max {cityWeather.list[31].main.temp.toFixed()} ºC</h4>
+                </div>
+              </div>
+              <hr />
+              <div>
+                <div>
+                  <h3>{cityWeather.list[39].dt_txt.slice(0, 10)}</h3>
+                  <img
+                    className="iconForecast"
+                    src={`http://openweathermap.org/img/wn/${cityWeather.list[38].weather[0].icon}@4x.png`}
+                    alt="icon"
+                  ></img>
+                  <h4>Min {cityWeather.list[35].main.temp_min.toFixed()} ºC</h4>
+                  <h4>Max {cityWeather.list[38].main.temp.toFixed()} ºC</h4>
+                </div>
+              </div>
             </div>
 
-            <div>
+            {/* <div>
               <h4>{this.props.day2}</h4>
               <h4>{this.props.day2Temp.toFixed()} ºC</h4>
               <h5> "{this.props.day2Desc}"</h5>
@@ -81,7 +124,7 @@ class CityCard extends Component {
               <h4>{this.props.day5}</h4>
               <h4>{this.props.day5Temp.toFixed()} ºC</h4>
               <h5>"{this.props.day5Desc}"</h5>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
